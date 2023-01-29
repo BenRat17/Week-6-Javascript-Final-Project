@@ -7,6 +7,9 @@ class Player {
         this.name = name;
         this.hand = [];
         this.score = 0;
+        if (typeof this.name != 'string'){
+            throw new Error('Name must only contain letters')
+        }
     }
 }
 
@@ -16,6 +19,13 @@ class Card {
      static face = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
      //had to look up how to make a constant variable inside a class since it wouldn't let me at first, 'Static' is the keyword for that.//
      constructor(face, suit){
+        if (!Card.face.includes(value)) {
+            throw new Error('Not a valid card face type!');
+        }
+        if (!Card.suit.includes(suit)) {
+            throw new Error('Not a valid card suit type!');
+        }
+
         this.suit = suit;
         this.face = face;
     }
